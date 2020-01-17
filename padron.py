@@ -18,7 +18,7 @@
 __author__ = "Mariano Reingart <reingart@gmail.com>"
 __copyright__ = "Copyright (C) 2014-2016 Mariano Reingart"
 __license__ = "GPL 3.0"
-__version__ = "1.08a"
+__version__ = "1.08b"
 
 
 import csv
@@ -409,7 +409,7 @@ class PadronAFIP():
         "Llama a la API para descargar una constancia de inscripcion (PDF)"
         if not self.client:
             self.Conectar()
-        self.response = self.client("sr-padron", "v1", "constancia", str(nro_doc))
+        self.response = self.client("sr-padron", "v2", "constancia", str(nro_doc))
         if self.response.startswith("{"):
             result = json.loads(self.response)
             assert not result["success"]
